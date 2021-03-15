@@ -3,9 +3,9 @@ A handy utility to quickly encrypt/decrypt strings from terminal and files using
 
 ### Summary
 
-* [Arguments List](#Arguments%20List) <br>
-* [Quick use](#Quick%20Use) <br>
-* [API](#Use%20in%20your%20projects)
+* [Arguments List](#arguments-list) <br>
+* [Quick use](#quick-use) <br>
+* [API](#use-in-your-projects)
 
 ## Arguments List
 
