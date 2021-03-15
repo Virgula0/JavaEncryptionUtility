@@ -10,37 +10,36 @@ A handy utility to quickly encrypt/decrypt strings from terminal and files using
 ## Arguments List
 
 ```
-                      ----------------------------------REQUIRED ARGUMENTS--------------------------
-                      <encrypt/decrypt | encryptFile/decryptFile> Choose if you want to encrypt or decrypt data                        
-                      -b<AES | RSA> Choose between RSA and AES encryption                                                               
-                      \"content to encrypt goes here\"                                                                                  
-                      --------------------------OPTIONAL ARGUMENTS FOR AES--------------------------
-                      -s <128 | 192 | 256> specify the size of the key with one of the shown value.                                
-                              Default is 128.                                                                                      
-                      -fiv <FILELOCATION> specify the hexadecimal file where specified VI islocated                                
-                      -p <PASS:SALT> specify a password for encryption/decryption with the specified PASS and SALT                 
-                      -k <KEYFILELOCATION> specify location for setting a specific Base64 encoded key                              
-                      -a <CBS|CFB|OFB|CTR|GCM> choose alghorithm type                                                              
-                              Default is CBS                                                                                       
-                      -wiv <FILENAME> Creates a file with the latest VI used or the specified one if there is.                     
-                      -wk <FILENAME> Creates a file with the latest Key Encoded value used or the specified one if there is.       
-                      -i <FILENAME> Input file encrypted/decrypted or physical file to encrypt/decrypt.                            
-                      -o <FILENAME> Output file to specify if you want to encrypt/decrypt an entire physical file or               
-                                    where you want to save encrypted/decrypted content.                                            
-                      -v Set verbose to true (Use it only for encryptFile/decryptFile when files are big)                                                                         
-                              Default is set to false                                                                              
-                     ---------------------------------OPTIONAL ARGUMENTS FOR RSA--------------------------
-                      -s <512|1024|2048|4096....|inf> Specify the key size, multiples of 2!!                                      
-                              Default is set to 512                                                                               
-                              You may need to specify -s option when encrypting/decrypting physical files                         
-                      -fkpr <FILENAME> Specify format private key with a PEM format from a file                                   
-                      -fkpu <FILENAME> Specify format public key with a PEM format from a file                                    
-                      -wkpr <FILENAME> Creates a file with the latest private key used in PEM format                              
-                      -wkpu <FILENAME> Creates a file with the latest public key used in PEM format                               
-                      -i <FILENAME> Input file encrypted/decrypted                                                                
-                      -o <FILENAME> Output file to specify if you want to encrypt/decrypt an entire file.                         
-                      -v Set verbose to true (Use it only for encryptFile/decryptFile when files are big)                                                                                     
-                              Default is set to false                                                                             
+                 ----------------------------------REQUIRED ARGUMENTS--------------------------
+                 <encrypt/decrypt | encryptFile/decryptFile> Choose if you want to encrypt or decrypt data                        
+                 -b<AES | RSA> Choose between RSA and AES encryption                                                               
+                 \"content to encrypt goes here\"                                                                                  
+                 --------------------------OPTIONAL ARGUMENTS FOR AES--------------------------
+                 -s <128 | 192 | 256> specify the size of the key with one of the shown value.                                
+                          Default is 128.                                                                                      
+                 -fiv <FILELOCATION> specify the hexadecimal file where specified VI islocated                                
+                 -p <PASS:SALT> specify a password for encryption/decryption with the specified PASS and SALT                 
+                 -k <KEYFILELOCATION> specify location for setting a specific Base64 encoded key                              
+                 -a <CBS|CFB|OFB|CTR|GCM> choose alghorithm type                                                              
+                          Default is CBS                                                                                       
+                 -wiv <FILENAME> Creates a file with the latest VI used or the specified one if there is.                     
+                 -wk <FILENAME> Creates a file with the latest Key Encoded value used or the specified one if there is.       
+                 -i <FILENAME> Input file encrypted/decrypted or physical file to encrypt/decrypt.                            
+                 -o <FILENAME> Output file to specify if you want to encrypt/decrypt an entire physical file or               
+                          where you want to save encrypted/decrypted content.                                            
+                 -v Set verbose to true (Use it only for encryptFile/decryptFile when files are big)                                                                         
+                          Default is set to false                                                                              
+                  ---------------------------------OPTIONAL ARGUMENTS FOR RSA--------------------------
+                  -s <512|1024|2048|4096....|inf> Specify the key size, multiples of 2!!                                      
+                          Default is set to 512                                                                               
+                   You may need to specify -s option when encrypting/decrypting physical files                         
+                  -fkpr <FILENAME> Specify format private key with a PEM format from a file                                   
+                  -fkpu <FILENAME> Specify format public key with a PEM format from a file                                    
+                  -wkpr <FILENAME> Creates a file with the latest private key used in PEM format                              
+                  -wkpu <FILENAME> Creates a file with the latest public key used in PEM format                               
+                  -i <FILENAME> Input file encrypted/decrypted                                                                
+                  -o <FILENAME> Output file to specify if you want to encrypt/decrypt an entire file.                         
+                  -v Set verbose to true (Use it only for encryptFile/decryptFile when files are big)                                                                                                       Default is set to false                                                                             
 ```
 ## Quick Use
 
