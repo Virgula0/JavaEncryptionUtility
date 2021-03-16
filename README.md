@@ -50,7 +50,7 @@ A handy utility to quickly encrypt/decrypt strings from terminal and files using
 java -jar JavaEncrytionUtility.jar encrypt -bAES -wiv iv.txt -wk key.txt -s 256 -a CBC "ThisContentWillBeEncrypted"
 
 2)Encrypt a string from terminal with RSA writing the generated key pair in private.txt and public.txt files.
-java -jar JavaEncrytionUtility.jar decrypt -bRSA -s 4096 -wkpr private.txt -wkpu public.txt "ThisContentWillBeEncrypted"
+java -jar JavaEncrytionUtility.jar encrypt -bRSA -s 4096 -wkpr private.txt -wkpu public.txt "ThisContentWillBeEncrypted"
 
 3)Decrypt a string from terminal with AES using iv and key generated in the (1) step.
 java -jar JavaEncrytionUtility.jar decrypt -bAES -s 256 -a CBC -fiv iv.txt -k key.txt "EncryptedStringFromStep1"
