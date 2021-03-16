@@ -8,20 +8,21 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 /**
- * -s <128 | 192 | 256> specify the size of the key with one of the shown value.
- * Default is 128.
- * -fiv <FILELOCATION> specify the hexadecimal file where specified VI islocated
- * -p <PASS:SALT> specify a password for encryption/decryption with the specified PASS and SALT
- * -k <KEYFILELOCATION> specify location for setting a specific Base64 encoded key
- * -a <CBS|CFB|OFB|CTR|GCM> choose alghorithm type
- * Default is CBS
- * -wiv <FILENAME> Creates a file with the latest VI used or the specified one if there is.
- * -wk <FILENAME> Creates a file with the latest Key Encoded value used or the specified one if there is.
- * -i <FILENAME> Input file encrypted/decrypted or physical file to encrypt/decrypt.
- * -o <FILENAME> Output file to specify if you want to encrypt/decrypt an entire physical file or
- * where you want to save encrypted/decrypted content.
- * -v Set verbose to true
- * Default is set to false
+ * <b>Terminal commands</b> <p>
+ * -s <128 | 192 | 256> specify the size of the key with one of the shown value. <p>
+ * Default is 128. <p>
+ * -fiv <FILELOCATION> specify the hexadecimal file where specified VI islocated <p>
+ * -p <PASS:SALT> specify a password for encryption/decryption with the specified PASS and SALT <p>
+ * -k <KEYFILELOCATION> specify location for setting a specific Base64 encoded key <p>
+ * -a <CBS|CFB|OFB|CTR|GCM> choose alghorithm type <p>
+ * Default is CBS <p>
+ * -wiv <FILENAME> Creates a file with the latest VI used or the specified one if there is. <p>
+ * -wk <FILENAME> Creates a file with the latest Key Encoded value used or the specified one if there is. <p>
+ * -i <FILENAME> Input file encrypted/decrypted or physical file to encrypt/decrypt. <p>
+ * -o <FILENAME> Output file to specify if you want to encrypt/decrypt an entire physical file or <p>
+ * where you want to save encrypted/decrypted content. <p>
+ * -v Set verbose to true <p>
+ * Default is set to false <p>
  **/
 public interface SimmetricEncryption extends Encryption {
     /**
@@ -64,10 +65,10 @@ public interface SimmetricEncryption extends Encryption {
      *
      * @param size
      */
-    void setSize(int size);
+    void setSize(int size) throws NoSuchAlgorithmException;
 
     /**
-     * Set algorithm default: AES/CBC/PKCS5Padding
+     * Set algorithm default: AES/CBC/PKCS5Padding <p>
      * Replace CBS with CFB OR OFB OR CTR OR GCM.
      *
      * @param algo
@@ -89,7 +90,7 @@ public interface SimmetricEncryption extends Encryption {
     String getKey();
 
     /**
-     * Set a generated password, should be a valid AES generated base64 encoded key.\
+     * Set a generated password, should be a valid AES generated base64 encoded key.
      *
      * @param password set the encoded password for the AES cipher
      */

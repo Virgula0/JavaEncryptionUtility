@@ -30,9 +30,9 @@ public class DetectAESEncryption extends DetectArguments {
             // initialize constructors with factory class utility
             ObjBuilderAES objectBuilder =
                     new VerbosityMatching(
-                            new KeyAESMatching(
-                                    new IVAESMatching(
-                                            new SizeKeyAESMatching(
+                            new SizeKeyAESMatching(
+                                    new KeyAESMatching(
+                                            new IVAESMatching(
                                                     new AlgorithmAESMatching(
                                                             new PasswordAESMatching(
                                                                     new OutputFileAESMatching(

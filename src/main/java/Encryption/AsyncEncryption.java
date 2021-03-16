@@ -6,17 +6,18 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 /**
- * -s <512|1024|2048|4096....|inf> Specify the key size, multiples of 2!!
- * Default is set to 512
- * You may need to specify -s option when encrypting/decrypting physical files
- * -fkpr <FILENAME> Specify format private key with a PEM format from a file
- * -fkpu <FILENAME> Specify format public key with a PEM format from a file
- * -wkpr <FILENAME> Creates a file with the latest private key used in PEM format
- * -wkpu <FILENAME> Creates a file with the latest public key used in PEM format
- * -i <FILENAME> Input file encrypted/decrypted
- * -o <FILENAME> Output file to specify if you want to encrypt/decrypt an entire file.
- * -v Set verbose to true
- * Default is set to false
+ * <b>Terminal commands</b> <p>
+ * -s <512|1024|2048|4096....|inf> Specify the key size, multiples of 2!! <p>
+ * Default is set to 512 <p>
+ * You may need to specify -s option when encrypting/decrypting physical files <p>
+ * -fkpr <FILENAME> Specify format private key with a PEM format from a file <p>
+ * -fkpu <FILENAME> Specify format public key with a PEM format from a file <p>
+ * -wkpr <FILENAME> Creates a file with the latest private key used in PEM format <p>
+ * -wkpu <FILENAME> Creates a file with the latest public key used in PEM format <p>
+ * -i <FILENAME> Input file encrypted/decrypted <p>
+ * -o <FILENAME> Output file to specify if you want to encrypt/decrypt an entire file. <p>
+ * -v Set verbose to true <p>
+ * Default is set to false <p>
  **/
 public interface AsyncEncryption extends Encryption {
     /**
@@ -43,9 +44,9 @@ public interface AsyncEncryption extends Encryption {
     /**
      * Set the public key. You should provide a public key with the following format:
      * <p>
-     * -----BEGIN PUBLIC KEY-----
-     * XXXXXXXXXXXXXXXXXXXXXXXXXX
-     * -----END PUBLIC KEY-----
+     * -----BEGIN PUBLIC KEY----- <p>
+     * XXXXXXXXXXXXXXXXXXXXXXXXXX <p>
+     * -----END PUBLIC KEY----- <p>
      *
      * @param publicKey
      * @throws InvalidKeySpecException  The Specified key is not in the correct format.
@@ -56,12 +57,12 @@ public interface AsyncEncryption extends Encryption {
     /**
      * Set the private key. You should provide a private key with the following format:
      * <p>
-     * -----BEGIN RSA PRIVATE KEY-----
-     * XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-     * -----END RSA PRIVATE KEY-----
+     * -----BEGIN RSA PRIVATE KEY----- <p>
+     * XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX <p>
+     * -----END RSA PRIVATE KEY----- <p>
      *
      * @param privateKey
-     * @throws InvalidKeySpecException  The Specified key is not in the correct format.
+     * @throws InvalidKeySpecException The Specified key is not in the correct format.
      * @throws NoSuchAlgorithmException Algorithm not found.
      */
     void setPrivateKey(String privateKey) throws InvalidKeySpecException, NoSuchAlgorithmException;
@@ -70,7 +71,7 @@ public interface AsyncEncryption extends Encryption {
      * Write the generated or set public key into a file with a PEM format.
      *
      * @param file
-     * @throws IOException
+     * @throws IOException File does not exists or you don't have privileges to read it.
      */
     void writePublicKeyToFile(File file) throws IOException;
 
@@ -78,7 +79,7 @@ public interface AsyncEncryption extends Encryption {
      * Write the generated or set private key into a file with a PEM format.
      *
      * @param file
-     * @throws IOException
+     * @throws IOException File does not exists or you don't have privileges to read it.
      */
     void writePrivateKeyToFile(File file) throws IOException;
 }

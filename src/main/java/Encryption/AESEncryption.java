@@ -44,7 +44,7 @@ public class AESEncryption implements SimmetricEncryption {
         this.loggers = loggers;
     }
 
-    private SecretKey generateKey(int n) throws NoSuchAlgorithmException {
+    public SecretKey generateKey(int n) throws NoSuchAlgorithmException {
         KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
         keyGenerator.init(n);
         SecretKey key = keyGenerator.generateKey();
@@ -58,7 +58,8 @@ public class AESEncryption implements SimmetricEncryption {
     }
 
     @Override
-    public void setSize(int size) {
+    public void setSize(int size) throws NoSuchAlgorithmException {
+        this.key = generateKey(size);
         this.size = size;
     }
 
