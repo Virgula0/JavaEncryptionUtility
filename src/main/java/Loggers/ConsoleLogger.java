@@ -54,11 +54,11 @@ public class ConsoleLogger implements Logger {
     }
 
     @Override
-    public String getHasChangedLog() throws IOException {
+    public String getHasChangedLog() throws IOException, InterruptedException {
         boolean cng = this.changed;
         if (cng) {
             this.changed = false;
-            new ProcessBuilder(this.op.clearTerminalCommand()).inheritIO().start();
+            new ProcessBuilder(this.op.clearTerminalCommand()).inheritIO().start().waitFor();//waitFor(100,TimeUnit.MILLISECONDS);
             return changeableBuilder.toString();
         }
         return null;

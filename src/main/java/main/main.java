@@ -6,6 +6,7 @@ import Loggers.Logger;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class main {
@@ -22,7 +23,7 @@ public class main {
                 "      -fiv <FILELOCATION> specify the hexadecimal file where specified VI islocated                                \n" +
                 "      -p <PASS:SALT> specify a password for encryption/decryption with the specified PASS and SALT                 \n" +
                 "      -k <KEYFILELOCATION> specify location for setting a specific Base64 encoded key                              \n" +
-                "      -a <CBS|CFB|OFB|CTR|GCM> choose alghorithm type                                                              \n" +
+                "      -a <CBC|CFB|OFB|CTR> choose alghorithm type                                                              \n" +
                 "              Default is CBS                                                                                       \n" +
                 "      -wiv <FILENAME> Creates a file with the latest VI used or the specified one if there is.                     \n" +
                 "      -wk <FILENAME> Creates a file with the latest Key Encoded value used or the specified one if there is.       \n" +
@@ -59,28 +60,29 @@ public class main {
             System.exit(0);
         }
 
-        DetectArgumentsFacade instance = new DetectArgumentsFacade(args, new ArrayList<>());
+        List<String> arguments = Arrays.asList(args);
+
+        DetectArgumentsFacade instance = new DetectArgumentsFacade(arguments, new ArrayList<>());
         Thread a = new Thread(instance);
         a.start();
 
         List<Logger> loggers = instance.getLoggers();
+        boolean bool = false;
+
+        if (arguments.contains("-v"))
+            bool = true;
 
         while (true) {
-            /*
-            loggers.forEach(x -> {
-                String s = x.getLogs();
-                if (!s.isEmpty())
-                        System.out.print(s);
-            });
-
-             */
             for (Logger x : loggers) {
                 String s = x.getHasChangedLog();
                 String z = x.getLogs();
-                if (!z.isEmpty())
+                if (z != null && !z.isEmpty())
                     System.out.print(z);
-                if (s != null)
+                if (s != null) {
                     System.out.print(s);
+                    if (bool)
+                        Thread.sleep(250);
+                }
             }
         }
     }

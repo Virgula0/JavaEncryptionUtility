@@ -115,6 +115,7 @@ public class AESEncryption implements SimmetricEncryption {
         loggers.forEach(x -> x.log("IV wrote into: " + file.toPath()));
     }
 
+
     private IvParameterSpec generateIv() {
         byte[] iv = new byte[16];
         new SecureRandom().nextBytes(iv);

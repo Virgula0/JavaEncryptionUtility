@@ -19,15 +19,14 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-import java.util.Arrays;
 import java.util.List;
 
 public class DetectArgumentsFacade implements Runnable {
 
-    private final String[] args;
+    private final List<String> args;
     private final List<Logger> logger;
 
-    public DetectArgumentsFacade(String[] arguments, List<Logger> log) {
+    public DetectArgumentsFacade(List<String> arguments, List<Logger> log) {
         this.args = arguments;
         this.logger = log;
     }
@@ -48,7 +47,7 @@ public class DetectArgumentsFacade implements Runnable {
         OperatingSystemAbstract finalOP = op.matches(null);
         this.logger.add(FactoryClassUtility.getShellLogger(finalOP));
         encryptionsAvailable.setLoggers(logger);
-        Encryption enc = encryptionsAvailable.matches(Arrays.asList(args), this.logger);
+        Encryption enc = encryptionsAvailable.matches(args, this.logger);
         if (enc == null) {
             main.usage();
             throw new ArgumentsNotValidException("You must choose to use RSA or AES with -b option");
