@@ -96,37 +96,51 @@ Import the jar in your project. How to do it depends on what IDE you're using.
 ### AES
 
 ```java
-    OperatingSystemAbstract o = new Windows(new Linux(new MacOSX(null))); //Detect Operating System 
-    OperatingSystemAbstract op = o.matches(null);
+        OperatingSystemAbstract o = new Windows(new Linux(new MacOSX(null))); //Detect Operating System
+        OperatingSystemAbstract op = o.matches(null);
 
-    List<Logger> loggers = new ArrayList<>();
-    loggers.add(new ConsoleLogger(op));
-    SimmetricEncryption enc = new AESEncryption(loggers);
-    enc.generateKey(256);
-    enc.writeIv(new File("iv.txt"));
-    enc.wrtieKey(new File("key.txt"));
-    
-    String encrypted = enc.encryptMessage("encrypt Me");
-    System.out.println("Encrypted: "+encrypted + "\nDecrypted: " + enc.decryptMessage(encrypted));
-    loggers.forEach(x -> System.out.print(x.getLogs())); //Print logs infos
+        List<Logger> loggers = new ArrayList<>();
+        loggers.add(new ConsoleLogger(op));
+        SimmetricEncryption enc = new AESEncryption(loggers);
+
+        //Set a personalized size
+        enc.setSize(256);
+
+        //Write Iv and Key in a File
+        enc.writeIv(new File("iv.txt"));
+        enc.writeKey(new File("key.txt"));
+
+        //Get the generated Key and Iv
+        String generatedKey = enc.getKey();
+        String generatedIv = enc.getIV();
+
+        enc.setKey(generatedKey);
+        enc.setIv(generatedIv);
+        String encrypted = enc.encryptMessage("encrypt Me");
+        System.out.println("Encrypted: "+encrypted + "\nDecrypted: " + enc.decryptMessage(encrypted));
+        loggers.forEach(x -> System.out.print(x.getLogs())); //Print logs infos
 ```
 
 ### RSA
 
 ```java
-    OperatingSystemAbstract o = new Windows(new Linux(new MacOSX(null))); //Detect Operating System 
-    OperatingSystemAbstract op = o.matches(null);    
-    
-    List<Logger> loggers = new ArrayList<>();
-    loggers.add(new ConsoleLogger(op));
-    AsyncEncryption enc = new RSAEncryption(loggers);
-    enc.setKeySize(4096);
-    enc.writePublicKeyToFile(new File("public.txt"));
-    enc.writePrivateKeyToFile(new File("private.txt"));
-    
-    String encrypted = enc.encryptMessage("encrypt Me");
-    System.out.println("Encrypted: "+encrypted + "\nDecrypted: " + enc.decryptMessage(encrypted));
-    loggers.forEach(x -> System.out.print(x.getLogs())); //Print logs infos
+        OperatingSystemAbstract o = new Windows(new Linux(new MacOSX(null))); //Detect Operating System
+        OperatingSystemAbstract op = o.matches(null);
+
+        List<Logger> loggers = new ArrayList<>();
+        loggers.add(new ConsoleLogger(op));
+        AsyncEncryption enc = new RSAEncryption(loggers);
+
+        //set a key personal key size
+        enc.setKeySize(4096);
+
+        //write key pair in files
+        enc.writePublicKeyToFile(new File("public.txt"));
+        enc.writePrivateKeyToFile(new File("private.txt"));
+
+        String encrypted = enc.encryptMessage("encrypt Me");
+        System.out.println("Encrypted: "+encrypted + "\nDecrypted: " + enc.decryptMessage(encrypted));
+        loggers.forEach(x -> System.out.print(x.getLogs())); //Print logs infos
 
 ```
 
