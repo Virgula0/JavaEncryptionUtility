@@ -47,38 +47,38 @@ A handy utility to quickly encrypt/decrypt strings from terminal and files using
 
 ```
 1)Encrypt a string from terminal with AES. It will create files with iv and key respectively with names: iv.txt and key.txt
-java -jar JavaEncrytionUtility.jar encrypt -bAES -wiv iv.txt -wk key.txt -s 256 -a CBS "ThisContentWillBeEncrypted"
+java -jar JavaEncrytionUtility.jar encrypt -bAES -wiv iv.txt -wk key.txt -s 256 -a CBC "ThisContentWillBeEncrypted"
 
 2)Encrypt a string from terminal with RSA writing the generated key pair in private.txt and public.txt files.
 java -jar JavaEncrytionUtility.jar decrypt -bRSA -s 4096 -wkpr private.txt -wkpu public.txt "ThisContentWillBeEncrypted"
 
 3)Decrypt a string from terminal with AES using iv and key generated in the (1) step.
-java -jar JavaEncrytionUtility.jar decrypt -bAES -s 256 -a CBS -fiv iv.txt -k key.txt "EncryptedStringFromStep1"
+java -jar JavaEncrytionUtility.jar decrypt -bAES -s 256 -a CBC -fiv iv.txt -k key.txt "EncryptedStringFromStep1"
 
 4)Decrypt a string from terminal with RSA reading the generated key pair from files generated from step (2). Supported format for private and public key is PEM, use your own if you have.
 java -jar JavaEncrytionUtility.jar decrypt -bRSA -s 4096 -fkpr private.txt -fkpu public.txt "EncryptedContentFromTheStep2"
 
 5)Encrypt the content of a file and saving it into an output file with AES.
-java -jar JavaEncrytionUtility.jar encrypt -bAES -wiv iv.txt -wk key.txt -s 256 -a CBS -i inputToEncrypt.txt -o outputEncrypted.txt
+java -jar JavaEncrytionUtility.jar encrypt -bAES -wiv iv.txt -wk key.txt -s 256 -a CBC -i inputToEncrypt.txt -o outputEncrypted.txt
 
 6)Encrypt the content of a file and saving it into an output file with RSA.
 java -jar JavaEncrytionUtility.jar encrypt -bRSA -s 4096 -wkpr private.txt -wkpu public.txt -i inputToEncrypt.txt -o outputEncrypted.txt
 
 7)Decrypt the content of a file from terminal with AES using encrypted output file from the step (5)
-java -jar JavaEncrytionUtility.jar decrypt -bAES -fiv iv.txt -k key.txt -s 256 -a CBS -i outputEncrypted.txt -o decrypted.txt
+java -jar JavaEncrytionUtility.jar decrypt -bAES -fiv iv.txt -k key.txt -s 256 -a CBC -i outputEncrypted.txt -o decrypted.txt
 
 8)Decrypt the content of a file from terminal with RSA using encrypted output file from the step (6)
 java -jar JavaEncrytionUtility.jar decrypt -bRSA -s 4096 -fkpr private.txt -fkpu public.txt -i outputEncrypted.txt -o decrypted.txt
 
 9)Encrypt a file with AES (The difference with the example 5 is that this method is specifically coded also for huge files)
-java -jar JavaEncrytionUtility.jar encryptFile -bAES -wiv iv.txt -wk key.txt -s 256 -a CBS -i fileToEncrypt.txt -o saveEncrypted.txt
+java -jar JavaEncrytionUtility.jar encryptFile -bAES -wiv iv.txt -wk key.txt -s 256 -a CBC -i fileToEncrypt.txt -o saveEncrypted.txt
 
 10)Encrypt a file with RSA (The difference with the example 6 is that this method is specifically coded also for huge files)
 WARNING: RSA is not made for encrypt/decrypt huge files. It is extremely slow. Use it only for educational purpose or with files which their size is few kbs.
 java -jar JavaEncrytionUtility.jar encryptFile -bRSA -s 4096 -wkpr private.txt -wkpu public.txt -i inputToEncrypt.txt -o outputEncrypted.txt
 
 11)Decrypt a file with AES 
-java -jar JavaEncrytionUtility.jar decryptFile -bAES -fiv iv.txt -k key.txt -s 256 -a CBS -i saveEncrypted.txt -o decrypted.txt
+java -jar JavaEncrytionUtility.jar decryptFile -bAES -fiv iv.txt -k key.txt -s 256 -a CBC -i saveEncrypted.txt -o decrypted.txt
 
 10)Decrypt a file with RSA 
 WARNING: RSA is not made for encrypt/decrypt huge files. It is extremely slow. Use it only for educational purpose or with files which their size is few kbs.
