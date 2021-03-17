@@ -144,6 +144,6 @@ Import the jar in your project. How to do it depends on what IDE you're using.
 
 ```
 
-For the remaining methods and infos check generated JavaDoc. 
+For the remaining methods and infos check generated [JavaDoc](https://github.com/Virgula0/JavaEncryptionUtility/releases/download/1.0.0.0/JavaDoc.zip). 
 
 
