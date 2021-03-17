@@ -9,19 +9,19 @@ import java.security.spec.InvalidKeySpecException;
 
 /**
  * <b>Terminal commands</b> <p>
- * -s <128 | 192 | 256> specify the size of the key with one of the shown value. <p>
+ * -s <128 | 192 | 256> specify the size of the key with one of the shown value.  <p>
  * Default is 128. <p>
- * -fiv <FILELOCATION> specify the hexadecimal file where specified VI islocated <p>
- * -p <PASS:SALT> specify a password for encryption/decryption with the specified PASS and SALT <p>
- * -k <KEYFILELOCATION> specify location for setting a specific Base64 encoded key <p>
- * -a <CBS|CFB|OFB|CTR|GCM> choose alghorithm type <p>
+ * -fiv <FILELOCATION> Import from a file the hexadecimal IV. <p>
+ * -p <PASS:SALT> set a password for encryption/decryption with the specified PASS and SALT  <p>
+ * -k <KEYFILELOCATION> Import a Base64 encoded key from a file  <p>
+ * -a <CBS|CFB|OFB|CTR|GCM> Choose an algorithm type <p>
  * Default is CBS <p>
- * -wiv <FILENAME> Creates a file with the latest VI used or the specified one if there is. <p>
- * -wk <FILENAME> Creates a file with the latest Key Encoded value used or the specified one if there is. <p>
+ * -wiv <FILENAME> Creates a file and writes the latest IV used (or specified) <p>
+ * -wk <FILENAME> Creates a file with the latest Key Encoded value used (or specified) <p>
  * -i <FILENAME> Input file encrypted/decrypted or physical file to encrypt/decrypt. <p>
  * -o <FILENAME> Output file to specify if you want to encrypt/decrypt an entire physical file or <p>
  * where you want to save encrypted/decrypted content. <p>
- * -v Set verbose to true <p>
+ * -v Set verbose to true (Use it only for encryptFile/decryptFile when files are big) <p>
  * Default is set to false <p>
  **/
 public interface SimmetricEncryption extends Encryption {

@@ -20,28 +20,29 @@ public class main {
                 "\n|-----------------------------OPTIONAL ARGUMENTS FOR AES--------------------------|\n" +
                 "      -s <128 | 192 | 256> specify the size of the key with one of the shown value.                                \n" +
                 "              Default is 128.                                                                                      \n" +
-                "      -fiv <FILELOCATION> specify the hexadecimal file where specified VI islocated                                \n" +
-                "      -p <PASS:SALT> specify a password for encryption/decryption with the specified PASS and SALT                 \n" +
-                "      -k <KEYFILELOCATION> specify location for setting a specific Base64 encoded key                              \n" +
-                "      -a <CBC|CFB|OFB|CTR> choose alghorithm type                                                              \n" +
+                "      -fiv <FILELOCATION> Import from a file the hexadecimal IV.                                \n" +
+                "      -p <PASS:SALT> set a password for encryption/decryption with the specified PASS and SALT                 \n" +
+                "      -k <KEYFILELOCATION> Import a Base64 encoded key from a file                             \n" +
+                "      -a <CBC|CFB|OFB|CTR> Choose an algorithm type                                                              \n" +
                 "              Default is CBS                                                                                       \n" +
-                "      -wiv <FILENAME> Creates a file with the latest VI used or the specified one if there is.                     \n" +
-                "      -wk <FILENAME> Creates a file with the latest Key Encoded value used or the specified one if there is.       \n" +
+                "      -wiv <FILENAME> Creates a file and writes the latest IV used (or specified)                      \n" +
+                "      -wk <FILENAME> Creates a file with the latest Key Encoded value used (or specified)        \n" +
                 "      -i <FILENAME> Input file encrypted/decrypted or physical file to encrypt/decrypt.                            \n" +
                 "      -o <FILENAME> Output file to specify if you want to encrypt/decrypt an entire physical file or               \n" +
                 "                    where you want to save encrypted/decrypted content.                                            \n" +
                 "      -v Set verbose to true (Use it only for encryptFile/decryptFile when files are big)                                                                                      \n" +
                 "              Default is set to false                                                                              \n" +
                 "|-----------------------------OPTIONAL ARGUMENTS FOR RSA--------------------------|\n" +
-                "      -s <512|1024|2048|4096....|inf> Specify the key size, multiples of 2!!                                      \n" +
+                "      -s <512|1024|2048|4096....|inf> Set the key size, powers of 2!!                                      \n" +
                 "              Default is set to 512                                                                               \n" +
                 "              You may need to specify -s option when encrypting/decrypting physical files                         \n" +
-                "      -fkpr <FILENAME> Specify format private key with a PEM format from a file                                   \n" +
-                "      -fkpu <FILENAME> Specify format public key with a PEM format from a file                                    \n" +
+                "      -fkpr <FILENAME> Import a private key with a PEM format from a file                                  \n" +
+                "      -fkpu <FILENAME> Import a public key with a PEM format from a file                                    \n" +
                 "      -wkpr <FILENAME> Creates a file with the latest private key used in PEM format                              \n" +
                 "      -wkpu <FILENAME> Creates a file with the latest public key used in PEM format                               \n" +
-                "      -i <FILENAME> Input file encrypted/decrypted                                                                \n" +
-                "      -o <FILENAME> Output file to specify if you want to encrypt/decrypt an entire file.                         \n" +
+                "      -i <FILENAME> Input file encrypted/decrypted                                                               \n" +
+                "      -o <FILENAME> Output file to specify if you want to encrypt/decrypt an entire physical file or               \n" +
+                "                          where you want to save encrypted/decrypted content.                         \n" +
                 "      -v Set verbose to true (Use it only for encryptFile/decryptFile when files are big)                                                                                     \n" +
                 "              Default is set to false                                                                             \n" +
                 "";

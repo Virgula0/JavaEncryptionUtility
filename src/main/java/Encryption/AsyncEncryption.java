@@ -7,16 +7,17 @@ import java.security.spec.InvalidKeySpecException;
 
 /**
  * <b>Terminal commands</b> <p>
- * -s <512|1024|2048|4096....|inf> Specify the key size, multiples of 2!! <p>
+ * -s <512|1024|2048|4096....|inf> Set the key size, powers of 2!!   <p>
  * Default is set to 512 <p>
  * You may need to specify -s option when encrypting/decrypting physical files <p>
- * -fkpr <FILENAME> Specify format private key with a PEM format from a file <p>
- * -fkpu <FILENAME> Specify format public key with a PEM format from a file <p>
+ * -fkpr <FILENAME> Import a private key with a PEM format from a file <p>
+ * -fkpu <FILENAME> Import a public key with a PEM format from a file <p>
  * -wkpr <FILENAME> Creates a file with the latest private key used in PEM format <p>
  * -wkpu <FILENAME> Creates a file with the latest public key used in PEM format <p>
  * -i <FILENAME> Input file encrypted/decrypted <p>
- * -o <FILENAME> Output file to specify if you want to encrypt/decrypt an entire file. <p>
- * -v Set verbose to true <p>
+ * -o <FILENAME> Output file to specify if you want to encrypt/decrypt an entire physical file or
+ * where you want to save encrypted/decrypted content. <p>
+ * -v Set verbose to true (Use it only for encryptFile/decryptFile when files are big) <p>
  * Default is set to false <p>
  **/
 public interface AsyncEncryption extends Encryption {
