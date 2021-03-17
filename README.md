@@ -17,29 +17,31 @@ A handy utility to quickly encrypt/decrypt strings from terminal and files using
                  --------------------------OPTIONAL ARGUMENTS FOR AES--------------------------
                  -s <128 | 192 | 256> specify the size of the key with one of the shown value.                                
                           Default is 128.                                                                                      
-                 -fiv <FILELOCATION> specify the hexadecimal file where specified VI islocated                                
-                 -p <PASS:SALT> specify a password for encryption/decryption with the specified PASS and SALT                 
-                 -k <KEYFILELOCATION> specify location for setting a specific Base64 encoded key                              
-                 -a <CBS|CFB|OFB|CTR|GCM> choose alghorithm type                                                              
+                 -fiv <FILELOCATION> Import from a file the hexadecimal IV.                             
+                 -p <PASS:SALT> set a password for encryption/decryption with the specified PASS and SALT                 
+                 -k <KEYFILELOCATION> Import a Base64 encoded key from a file                           
+                 -a <CBS|CFB|OFB|CTR|GCM> Choose an algorithm type                                                              
                           Default is CBS                                                                                       
-                 -wiv <FILENAME> Creates a file with the latest VI used or the specified one if there is.                     
-                 -wk <FILENAME> Creates a file with the latest Key Encoded value used or the specified one if there is.       
+                 -wiv <FILENAME> Creates a file and writes the latest IV used (or specified)                  
+                 -wk <FILENAME> Creates a file with the latest Key Encoded value used (or specified)     
                  -i <FILENAME> Input file encrypted/decrypted or physical file to encrypt/decrypt.                            
                  -o <FILENAME> Output file to specify if you want to encrypt/decrypt an entire physical file or               
                           where you want to save encrypted/decrypted content.                                            
                  -v Set verbose to true (Use it only for encryptFile/decryptFile when files are big)                                                                         
                           Default is set to false                                                                              
                   ---------------------------------OPTIONAL ARGUMENTS FOR RSA--------------------------
-                  -s <512|1024|2048|4096....|inf> Specify the key size, multiples of 2!!                                      
+                  -s <512|1024|2048|4096....|inf> Set the key size, powers of 2!!                                      
                           Default is set to 512                                                                               
                    You may need to specify -s option when encrypting/decrypting physical files                         
-                  -fkpr <FILENAME> Specify format private key with a PEM format from a file                                   
-                  -fkpu <FILENAME> Specify format public key with a PEM format from a file                                    
+                  -fkpr <FILENAME> Import a private key with a PEM format from a file                                   
+                  -fkpu <FILENAME> Import a public key with a PEM format from a file                                    
                   -wkpr <FILENAME> Creates a file with the latest private key used in PEM format                              
                   -wkpu <FILENAME> Creates a file with the latest public key used in PEM format                               
                   -i <FILENAME> Input file encrypted/decrypted                                                                
-                  -o <FILENAME> Output file to specify if you want to encrypt/decrypt an entire file.                         
-                  -v Set verbose to true (Use it only for encryptFile/decryptFile when files are big)                                                                                                       Default is set to false                                                                             
+                  -o <FILENAME> Output file to specify if you want to encrypt/decrypt an entire physical file or               
+                          where you want to save encrypted/decrypted content.                        
+                  -v Set verbose to true (Use it only for encryptFile/decryptFile when files are big)                                                                                                       
+                          Default is set to false                                                                             
 ```
 ## Quick Use
 
@@ -86,8 +88,6 @@ java -jar JavaEncrytionUtility.jar decryptFile -bRSA -s 4096 -fkpr private.txt -
 
 ```
 
-You can also consider to use binaries frovided for each operating system instead of the Jar file.
-
 ## Use in your projects
 
 ### Import
@@ -96,14 +96,14 @@ Import the jar in your project. How to do it depends on what IDE you're using.
 ### AES
 
 ```java
-        OperatingSystemAbstract o = new Windows(new Linux(new MacOSX(null))); //Detect Operating System
-        OperatingSystemAbstract op = o.matches(null);
+        OperatingSystemAbstract o = new Windows(new Linux(new MacOSX(null))); 
+        OperatingSystemAbstract op = o.matches(null);   //Detect Operating System
 
         List<Logger> loggers = new ArrayList<>();
         loggers.add(new ConsoleLogger(op));
         SimmetricEncryption enc = new AESEncryption(loggers);
 
-        //Set a personalized size
+        //Set a custom size
         enc.setSize(256);
 
         //Write Iv and Key in a File
@@ -124,14 +124,14 @@ Import the jar in your project. How to do it depends on what IDE you're using.
 ### RSA
 
 ```java
-        OperatingSystemAbstract o = new Windows(new Linux(new MacOSX(null))); //Detect Operating System
-        OperatingSystemAbstract op = o.matches(null);
+        OperatingSystemAbstract o = new Windows(new Linux(new MacOSX(null))); 
+        OperatingSystemAbstract op = o.matches(null);   //Detect Operating System
 
         List<Logger> loggers = new ArrayList<>();
         loggers.add(new ConsoleLogger(op));
         AsyncEncryption enc = new RSAEncryption(loggers);
 
-        //set a key personal key size
+        //set a custom key size
         enc.setKeySize(4096);
 
         //write key pair in files
